@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="NguyenThiLan">
+
+    <select id="getStudentById" resultType="com.example.hocmybatis.rest.Student" parameterType="java.lang.Long">
+        select *
+        from Student
+        where id = #{id}
+    </select>
+
+    <select id="getListStudentAll" resultType="com.example.hocmybatis.rest.Student" parameterType="java.util.List">
+        select *
+        from Student
+    </select>
+
+    <update id="editStudentById" parameterType="com.example.hocmybatis.rest.EditStudentDto">
+        update Student
+        <set>
+            <if test="name != null">name=#{name},</if>
+            <if test="age != null">age=#{age},</if>
+            <if test="classRoom != null">classRoom=#{classRoom},</if>
+            <if test="avatar != null">avatar=#{avatar}</if>
+        </set>
+        where id=#{id}
+    </update>
+
+    <delete id="deleteStudentById" parameterType="java.lang.Long">
+        DELETE
+        from Student
+        WHERE ID = #{id};
+    </delete>
+
+    <select id="getTotalRecord" resultType="java.lang.Long" parameterType="com.example.hocmybatis.rest.page.SelectListStudentPrt">
+        select count(id)
+        from Student
+        <where>
+            <if test="age != null">
+                age = #{age}
+            </if>
+
+            <if test="name != null">
+                AND name like #{name}
+            </if>
+        </where>
+    </select>
+
+<!--    <select id="getPageStudent" resultType="com.example.hocmybatis.rest.Student"-->
+<!--            parameterType="com.example.hocmybatis.rest.page.SelectListStudentPrt">-->
+<!--        select id, avatar, name, age, classRoom from Student-->
+<!--        <if test="offset != null and limit != null">-->
+<!--&#45;&#45;             LIMIT #{offset}, #{limit}-->
+<!--            LIMIT #{limit} OFFSET #{offset}-->
+<!--        </if>-->
+<!--    </select>-->
+
+    <select id="getPageStudent" resultType="com.example.hocmybatis.rest.Student"
+            parameterType="com.example.hocmybatis.rest.page.SelectListStudentPrt">
+        select id, avatar, name, age, classRoom from Student
+        <where>
+            <if test="age != null">
+                age = #{age}
+            </if>
+
+            <if test="name != null">
+             AND name like #{name}
+            </if>
+        </where>
+            LIMIT #{limit} OFFSET #{offset}
+    </select>
+
+</mapper>
