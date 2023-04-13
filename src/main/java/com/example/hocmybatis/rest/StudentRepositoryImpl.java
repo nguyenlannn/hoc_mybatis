@@ -49,4 +49,8 @@ public class StudentRepositoryImpl {
     public List<Student> getPageStudent(SelectListStudentPrt lan) {
         return sqlSession.selectList("NguyenThiLan.getPageStudent", lan);
     }
+
+    public int craeteStudent(CreateStudentReq createStudentReq){
+        return sqlSession.insert("NguyenThiLan.createStudent", createStudentReq);
+    }
 }

@@ -83,4 +83,22 @@ public class StudentServiceImpl {
 
         return studentPageRes;
     }
+
+    public String createStudent(CreateStudentReq createStudentReq){
+
+//        CreateStudentPrt chon=new CreateStudentPrt(createStudentReq);
+//        chon.setId(createStudentReq.getId());
+//        chon.setAge(createStudentReq.getAge());
+//        chon.setName(createStudentReq.getName());
+//        chon.setClassRoom(createStudentReq.getClassRoom());
+ //
+//        Long bien1= (long) studentRepository.craeteStudent(createStudentReq);
+//
+//        if (bien1 > 0) {
+//            return "them ban ghi thanh cong";
+//        }
+//        return "them ban ghi that bai";
+
+
+    }
 }

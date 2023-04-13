@@ -68,4 +68,11 @@
             LIMIT #{limit} OFFSET #{offset}
     </select>
 
+    <insert id="createStudent" parameterType="com.example.hocmybatis.rest.CreateStudentPrt">
+        /* vn.cgds.rest.order.OrderRepository.createOrderProduct */
+        INSERT INTO Student (ID,NAME, AVATAR, AGE, CLASSROOM)
+        VALUES (#{id}, #{name}, #{avatar}, #{age}, #{classRoom});
+    </insert>
+
+
 </mapper>
