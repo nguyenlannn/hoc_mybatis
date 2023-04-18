@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
+//@Validated
 @RestController
 @RequestMapping("/test")
 public class StudentController {
@@ -22,7 +23,7 @@ public class StudentController {
 
     //lấy danh sách sinh viên
     @GetMapping("")
-    public ResponseEntity<?> getListStudent(){
+    public ResponseEntity<?> getListStudent() {
         return ResponseEntity.ok(studentService.getListStudent());
     }
 
@@ -30,12 +31,12 @@ public class StudentController {
     @PutMapping("/{id}")
     public ResponseEntity<?> editStudentById(@PathVariable Long id,
                                              @RequestBody EditStudentDto editStudentDto) {
-       return ResponseEntity.ok(studentService.editStudentById(id,editStudentDto));
+        return ResponseEntity.ok(studentService.editStudentById(id, editStudentDto));
     }
 
     //xóa sinh viên theo id
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> deleteStudentById(@PathVariable Long id){
+    public ResponseEntity<?> deleteStudentById(@PathVariable Long id) {
         return ResponseEntity.ok(studentService.deleteStudentById(id));
     }
 
@@ -49,13 +50,12 @@ public class StudentController {
     public StudentPageRes pageStudent(@RequestParam(defaultValue = "10") Long pageSize,
                                       @RequestParam(defaultValue = "1") Long pageNo,
                                       @RequestParam(required = false) String name,
-                                      @RequestParam(required = false) String age){
-        return studentService.pageStudent(pageSize,pageNo,name, age);
+                                      @RequestParam(required = false) String age) {
+        return studentService.pageStudent(pageSize, pageNo, name, age);
     }
 
     @PostMapping("/insert")
-    public ResponseEntity<?> createStudent(@RequestBody @Valid CreateStudentReq createStudentReq){
+    public ResponseEntity<?> createStudent(@RequestBody @Valid CreateStudentReq createStudentReq) {
         return ResponseEntity.ok(studentService.createStudent(createStudentReq));
     }
-
 }

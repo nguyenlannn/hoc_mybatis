@@ -44,7 +44,7 @@ public class StudentServiceImpl {
         return "xoa ban ghi that bai";
     }
 
-//    public StudentPageRes pageStudent(Long pageSize, Long pageNo) {
+    //    public StudentPageRes pageStudent(Long pageSize, Long pageNo) {
 //
 //
 //        Long total = studentRepository.getTotalRecord();
@@ -84,15 +84,15 @@ public class StudentServiceImpl {
         return studentPageRes;
     }
 
-    public String createStudent(CreateStudentReq req){
+    public String createStudent(CreateStudentReq req) {
 
-         Long bien1= (long) studentRepository.craeteStudent(req);
-
-        CreateStudentPrt chon=new CreateStudentPrt();
-        chon.setId(req.getId());
-        chon.setAge(req.getAge());
-        chon.setName(req.getName());
-        chon.setClassRoom(req.getClassRoom());
+        int bien1 = studentRepository.craeteStudent(req);
+//        throw new RuntimeException();
+//        CreateStudentPrt chon = new CreateStudentPrt();
+//        chon.setAgeetId(req.getId());
+//        chon.setAge(req.g());
+//        chon.setName(req.getName());
+//        chon.setClassRoom(req.getClassRoom());
 
         if (bien1 > 0) {
             return "them ban ghi thanh cong";

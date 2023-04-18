@@ -1,17 +1,21 @@
 package com.example.hocmybatis.rest;
 
-import lombok.Data;
+import lombok.*;
 import org.hibernate.validator.constraints.Length;
 
+import javax.validation.constraints.Max;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Positive;
 
-@Data
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class CreateStudentReq {
 
     @NotNull
-    @Length(max = 10, min = 4)
+    @Max(10)
     private Long id;
     @NotNull
     private String avatar;
