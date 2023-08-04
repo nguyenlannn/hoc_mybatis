@@ -34,14 +34,6 @@ public class StudentRepositoryImpl {
         return laaa;
     }
 
-//    public Long getTotalRecord() {
-//        return sqlSession.selectOne("NguyenThiLan.getTotalRecord");
-//    }
-//
-//    public List<Student> getPageStudent(SelectListStudentPrt lan) {
-//        return sqlSession.selectList("NguyenThiLan.getPageStudent", lan);
-//    }
-
     public Long getTotalRecord() {
         return sqlSession.selectOne("NguyenThiLan.getTotalRecord");
     }

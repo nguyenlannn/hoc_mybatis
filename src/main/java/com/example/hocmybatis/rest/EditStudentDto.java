@@ -9,9 +9,9 @@ import java.io.Serializable;
 @AllArgsConstructor
 @NoArgsConstructor
 public class EditStudentDto implements Serializable {
-     private Long id;
-     private String avatar;
-     private String name;
-     private String age;
-     private String classRoom;
+    private Long id;
+    private String avatar;
+    private String name;
+    private String age;
+    private String classRoom;
 }

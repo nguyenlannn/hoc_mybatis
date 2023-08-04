@@ -40,12 +40,6 @@ public class StudentController {
         return ResponseEntity.ok(studentService.deleteStudentById(id));
     }
 
-    //phân trang
-//    @GetMapping("/page")
-//    public StudentPageRes pageStudent(@RequestParam(defaultValue = "10") Long pageSize,
-//                                      @RequestParam(defaultValue = "1") Long pageNo){
-//        return studentService.pageStudent(pageSize,pageNo);
-//    }
     @GetMapping("/page")
     public StudentPageRes pageStudent(@RequestParam(defaultValue = "10") Long pageSize,
                                       @RequestParam(defaultValue = "1") Long pageNo,

@@ -44,25 +44,6 @@ public class StudentServiceImpl {
         return "xoa ban ghi that bai";
     }
 
-    //    public StudentPageRes pageStudent(Long pageSize, Long pageNo) {
-//
-//
-//        Long total = studentRepository.getTotalRecord();
-//
-//        StudentPageRes studentPageRes = new StudentPageRes();
-//        studentPageRes.setPageNo(pageNo);
-//        studentPageRes.setPageSize(pageSize);
-//        studentPageRes.setTotalRecord(total);
-//
-//        List<Student> list = studentRepository.getPageStudent(SelectListStudentPrt.builder()
-//                .limit(pageSize)
-//                .offset(pageSize * (pageNo - 1))
-//                .build());
-//        studentPageRes.setRecord(list);
-//        studentPageRes.setTotalPage((long) Math.ceil(total / pageSize));
-//
-//        return studentPageRes;
-//    }
     public StudentPageRes pageStudent(Long pageSize, Long pageNo, String name, String age) {
 
         Long total = studentRepository.getTotalRecord();
@@ -87,12 +68,6 @@ public class StudentServiceImpl {
     public String createStudent(CreateStudentReq req) {
 
         int bien1 = studentRepository.craeteStudent(req);
-//        throw new RuntimeException();
-//        CreateStudentPrt chon = new CreateStudentPrt();
-//        chon.setAgeetId(req.getId());
-//        chon.setAge(req.g());
-//        chon.setName(req.getName());
-//        chon.setClassRoom(req.getClassRoom());
 
         if (bien1 > 0) {
             return "them ban ghi thanh cong";
